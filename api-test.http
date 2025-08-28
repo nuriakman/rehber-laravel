@@ -8,12 +8,15 @@ POST {{baseUrl}}/birimler
 Content-Type: {{contentType}}
 
 {
-  "birim_adi": "Mali İşler",
-  "konumu": "C Blok"
+  "birim_adi": "Dış İlişkiler",
+  "konumu": "B Blok"
 }
 
 ### Birimler - Listele
 GET {{baseUrl}}/birimler
+
+### Birimler - Arama (q ile birim_adi LIKE)
+GET {{baseUrl}}/birimler?q=mali
 
 ### Birimler - Detay (createBirim yanıtından id kullanır)
 GET {{baseUrl}}/birimler/{{createBirim.response.body.$.id}}
@@ -35,7 +38,7 @@ POST {{baseUrl}}/unvanlar
 Content-Type: {{contentType}}
 
 {
-  "unvan_adi": "Uzman"
+  "unvan_adi": "Birim Yöneticisi"
 }
 
 ### Unvanlar - Listele
@@ -54,3 +57,5 @@ Content-Type: {{contentType}}
 
 ### Unvanlar - Sil
 DELETE {{baseUrl}}/unvanlar/{{createUnvan.response.body.$.id}}
+
+

@@ -13,6 +13,14 @@
 - id
 - unvan_adi
 
+### Personel
+
+- id
+- adi_soyadi
+- unvan_id
+- birim_id
+- notlar
+
 ## İş Listesi
 
 - Önce adminer ile rehber adlı veritabanı oluşturulur.

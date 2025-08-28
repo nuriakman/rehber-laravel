@@ -10,9 +10,16 @@ class BirimController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Birim::all());
+        $q = $request->query('q');
+
+        $query = Birim::query();
+        if (!empty($q)) {
+            $query->where('birim_adi', 'LIKE', "%{$q}%");
+        }
+
+        return response()->json($query->get());
     }
 
     /**
