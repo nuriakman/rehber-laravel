@@ -13,8 +13,8 @@ class PersonelController extends Controller
   public function index(Request $request)
   {
     // Basit listeleme (ilişkilerle birlikte)
-    $personeller = Personel::with(['unvan', 'birim'])->get();
-    return response()->json($personeller);
+    $personel = Personel::with(['unvan', 'birim'])->get();
+    return response()->json($personel);
   }
 
   /**

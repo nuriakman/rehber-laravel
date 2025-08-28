@@ -19,10 +19,10 @@ GET {{baseUrl}}/birimler
 GET {{baseUrl}}/birimler?q=mali
 
 ### Birimler - Detay (createBirim yanıtından id kullanır)
-GET {{baseUrl}}/birimler/{{createBirim.response.body.$.id}}
+GET {{baseUrl}}/birimler/2
 
 ### Birimler - Güncelle (PATCH)
-PATCH {{baseUrl}}/birimler/{{createBirim.response.body.$.id}}
+PATCH {{baseUrl}}/birimler/2
 Content-Type: {{contentType}}
 
 {
@@ -30,7 +30,7 @@ Content-Type: {{contentType}}
 }
 
 ### Birimler - Sil
-DELETE {{baseUrl}}/birimler/{{createBirim.response.body.$.id}}
+DELETE {{baseUrl}}/birimler/2
 
 ### Unvanlar - Oluştur
 # @name createUnvan
@@ -45,10 +45,10 @@ Content-Type: {{contentType}}
 GET {{baseUrl}}/unvanlar
 
 ### Unvanlar - Detay (createUnvan yanıtından id kullanır)
-GET {{baseUrl}}/unvanlar/{{createUnvan.response.body.$.id}}
+GET {{baseUrl}}/unvanlar/2
 
 ### Unvanlar - Güncelle (PUT)
-PUT {{baseUrl}}/unvanlar/{{createUnvan.response.body.$.id}}
+PUT {{baseUrl}}/unvanlar/2
 Content-Type: {{contentType}}
 
 {
@@ -56,6 +56,36 @@ Content-Type: {{contentType}}
 }
 
 ### Unvanlar - Sil
-DELETE {{baseUrl}}/unvanlar/{{createUnvan.response.body.$.id}}
+DELETE {{baseUrl}}/unvanlar/2
 
+
+
+### personel - Oluştur
+# @name createPersonel
+POST {{baseUrl}}/personel
+Content-Type: {{contentType}}
+
+{
+  "adi_soyadi": "Nuri Akman",
+  "unvan_id": 1,
+  "birim_id": 2,
+  "notlar": "Eskilerden"
+}
+
+### personel - Listele
+GET {{baseUrl}}/personel
+
+### personel - Detay (createPersonel yanıtından id kullanır)
+GET {{baseUrl}}/personel/{{createPersonel.response.body.$.id}}
+
+### personel - Güncelle (PATCH)
+PATCH {{baseUrl}}/personel/{{createPersonel.response.body.$.id}}
+Content-Type: {{contentType}}
+
+{
+  "notlar": "Güncellendi"
+}
+
+### personel - Sil
+DELETE {{baseUrl}}/personel/{{createPersonel.response.body.$.id}}
 

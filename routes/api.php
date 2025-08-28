@@ -7,10 +7,10 @@ use App\Http\Controllers\PersonelController;
 
 // REST API resource routes
 Route::apiResource('birimler', BirimController::class)
-    ->parameters(['birimler' => 'birim']);
+  ->parameters(['birimler' => 'birim']);
 
 Route::apiResource('unvanlar', UnvanController::class)
-    ->parameters(['unvanlar' => 'unvan']);
+  ->parameters(['unvanlar' => 'unvan']);
 
-Route::apiResource('personeller', PersonelController::class)
-    ->parameters(['personeller' => 'personel']);
+Route::apiResource('personel', PersonelController::class)
+  ->parameters(['personel' => 'personel']);
