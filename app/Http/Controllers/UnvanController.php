@@ -7,54 +7,61 @@ use Illuminate\Http\Request;
 
 class UnvanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return response()->json(Unvan::all());
+  /**
+   * Display a listing of the resource.
+   */
+  public function index(Request $request)
+  {
+    $q = $request->query('q');
+
+    $query = Unvan::query();
+    if (!empty($q)) {
+      $query->where('unvan_adi', 'LIKE', "%{$q}%");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'unvan_adi' => 'required|string|max:255',
-        ]);
+    return response()->json($query->get());
+  }
 
-        $unvan = Unvan::create($data);
-        return response()->json($unvan, 201);
-    }
+  /**
+   * Store a newly created resource in storage.
+   */
+  public function store(Request $request)
+  {
+    $data = $request->validate([
+      'unvan_adi' => 'required|string|max:255',
+    ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Unvan $unvan)
-    {
-        return response()->json($unvan);
-    }
+    $unvan = Unvan::create($data);
+    return response()->json($unvan, 201);
+  }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Unvan $unvan)
-    {
-        $data = $request->validate([
-            'unvan_adi' => 'sometimes|required|string|max:255',
-        ]);
+  /**
+   * Display the specified resource.
+   */
+  public function show(Unvan $unvan)
+  {
+    return response()->json($unvan);
+  }
 
-        $unvan->update($data);
-        return response()->json($unvan);
-    }
+  /**
+   * Update the specified resource in storage.
+   */
+  public function update(Request $request, Unvan $unvan)
+  {
+    $data = $request->validate([
+      'unvan_adi' => 'sometimes|required|string|max:255',
+    ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Unvan $unvan)
-    {
-        $unvan->delete();
-        return response()->noContent();
-    }
+    $unvan->update($data);
+    return response()->json($unvan);
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   */
+  public function destroy(Unvan $unvan)
+  {
+    $unvan->delete();
+    return response()->noContent();
+  }
 }

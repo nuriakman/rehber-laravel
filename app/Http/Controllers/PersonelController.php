@@ -12,10 +12,20 @@ class PersonelController extends Controller
    */
   public function index(Request $request)
   {
-    // Basit listeleme (ilişkilerle birlikte)
-    $personel = Personel::with(['unvan', 'birim'])->get();
-    return response()->json($personel);
+    $q = $request->query('q');
+
+    // İlişkileri eager load et
+    $query = Personel::with(['unvan', 'birim']);
+    //$query = Personel::all(); // tüm kayıtları getir (diğer tablolar olmadan!)
+
+    // Sadece adi_soyadi alanında arama
+    if (!empty($q)) {
+      $query->where('adi_soyadi', 'LIKE', "%{$q}%");
+    }
+
+    return response()->json($query->get());
   }
+
 
   /**
    * Store a newly created resource in storage.
