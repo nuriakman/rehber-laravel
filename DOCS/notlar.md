@@ -68,3 +68,21 @@ $ php artisan migrate
 ```
 
 - Laravel projemiz hazır. Servisi başlatmak için `php artisan serve` komutunu kullanabilirsiniz.
+
+## Proje Klonlama
+
+```bash
+git clone https://github.com/your-repo/rehber-laravel.git
+```
+
+- `git.env` dosyasının adı `.env` olarak değiştirilecek
+- database tanımları `.env` dosyasına eklenecek
+- `composer install` ile paketlerin yüklenmesi
+- `php artisan key:generate` ile key oluşturulur
+- `php artisan migrate` ile migration'lar uygulanır
+- `php artisan route:list` ile route'lar kontrol edilir
+- `php artisan serve` ile servis başlatılır
+
+## API Testi
+
+- `api-test.http` dosyası içinde test işlemleri yapılır
