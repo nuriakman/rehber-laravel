@@ -1,0 +1,56 @@
+### Ortak Değişkenler
+@baseUrl = http://127.0.0.1:8000/api
+@contentType = application/json
+
+### Birimler - Oluştur
+# @name createBirim
+POST {{baseUrl}}/birimler
+Content-Type: {{contentType}}
+
+{
+  "birim_adi": "Mali İşler",
+  "konumu": "C Blok"
+}
+
+### Birimler - Listele
+GET {{baseUrl}}/birimler
+
+### Birimler - Detay (createBirim yanıtından id kullanır)
+GET {{baseUrl}}/birimler/{{createBirim.response.body.$.id}}
+
+### Birimler - Güncelle (PATCH)
+PATCH {{baseUrl}}/birimler/{{createBirim.response.body.$.id}}
+Content-Type: {{contentType}}
+
+{
+  "konumu": "B Blok"
+}
+
+### Birimler - Sil
+DELETE {{baseUrl}}/birimler/{{createBirim.response.body.$.id}}
+
+### Unvanlar - Oluştur
+# @name createUnvan
+POST {{baseUrl}}/unvanlar
+Content-Type: {{contentType}}
+
+{
+  "unvan_adi": "Uzman"
+}
+
+### Unvanlar - Listele
+GET {{baseUrl}}/unvanlar
+
+### Unvanlar - Detay (createUnvan yanıtından id kullanır)
+GET {{baseUrl}}/unvanlar/{{createUnvan.response.body.$.id}}
+
+### Unvanlar - Güncelle (PUT)
+PUT {{baseUrl}}/unvanlar/{{createUnvan.response.body.$.id}}
+Content-Type: {{contentType}}
+
+{
+  "unvan_adi": "Kıdemli Uzman"
+}
+
+### Unvanlar - Sil
+DELETE {{baseUrl}}/unvanlar/{{createUnvan.response.body.$.id}}
