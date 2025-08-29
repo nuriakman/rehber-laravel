@@ -83,8 +83,9 @@ $ php artisan migrate
 git clone https://github.com/your-repo/rehber-laravel.git
 ```
 
-- `git.env` dosyasının adı `.env` olarak değiştirilecek
+- `.env.example` dosyasını `.env` olarak çoğaltın
 - database tanımları `.env` dosyasına eklenecek
+- adminer ile `rehber` adlı veritabanı oluşturulur.
 - `composer install` ile paketlerin yüklenmesi
 - `php artisan key:generate` ile key oluşturulur
 - `php artisan migrate` ile migration'lar uygulanır
