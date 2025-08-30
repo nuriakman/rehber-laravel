@@ -32,7 +32,7 @@
 - api.php dosyasına route tanımları yapılır.
 - bootstrap/app.php dosyasına api satırı eklenecek.
 - Rest Client için api-test.http dosyası oluşturulur
-  Örnek Prompt: https://marketplace.windsurf.com/extension/humao/rest-client sayfasında bilgilere göre projemin api-test.hpp dosyasını oluştur
+  Örnek Prompt: https://marketplace.windsurf.com/extension/humao/rest-client sayfasında bilgilere göre projemin api-test.http dosyasını oluştur
 
 - `php artisan route:list` ile route'lar doğru biçimde eklendi mi kontrol et
 
